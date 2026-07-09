@@ -44,7 +44,7 @@ function ProjectCard({ p, index }) {
       {(p.demo || p.github) && (
         <div className="flex items-center gap-4 border-t border-line pt-4">
           {p.demo && (
-            
+            <a
               href={p.demo}
               target="_blank"
               rel="noopener noreferrer"
@@ -54,7 +54,7 @@ function ProjectCard({ p, index }) {
             </a>
           )}
           {p.github && (
-            
+            <a
               href={p.github}
               target="_blank"
               rel="noopener noreferrer"
