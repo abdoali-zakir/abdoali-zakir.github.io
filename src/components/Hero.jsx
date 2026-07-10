@@ -56,11 +56,7 @@ export default function Hero() {
           <span className="text-accent">{profile.name.split(' ').slice(1).join(' ')}</span>
         </motion.h1>
 
-        <motion.p variants={item} className="mb-9 max-w-xl text-[1.05rem] leading-relaxed text-mid">
-          {profile.bio}
-        </motion.p>
-
-        <motion.div variants={item} className="flex flex-wrap items-center gap-3">
+        <motion.div variants={item} className="mb-9 flex flex-wrap items-center gap-3">
           <a
             href="#projects"
             onClick={scrollToProjects}
