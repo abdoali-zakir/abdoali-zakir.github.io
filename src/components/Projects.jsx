@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Sparkles } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { GithubIcon } from './BrandIcons';
 import { projects } from '../data';
 
@@ -21,10 +21,6 @@ function ProjectCard({ p, index }) {
         p.featured ? 'sm:col-span-2' : ''
       }`}
     >
-      <div className="mb-4 flex h-32 items-center justify-center rounded-lg border border-line bg-surface2 text-muted">
-        <Sparkles size={28} className="opacity-40 transition-transform duration-300 group-hover:scale-110 group-hover:opacity-70" />
-      </div>
-
       <div className="mb-1 flex items-start justify-between gap-3">
         <div className="font-display text-base font-semibold text-ink">{p.name}</div>
         <span className="whitespace-nowrap font-mono text-[10px] text-muted">{p.date}</span>
@@ -45,28 +41,30 @@ function ProjectCard({ p, index }) {
         ))}
       </div>
 
-     <div className="flex items-center gap-4 border-t border-line pt-4">
-        {p.demo && (
-  
-            href={p.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-[12.5px] font-medium text-ink hover:text-accent"
-          >
-            <ExternalLink size={14} /> Live Demo
-          </a>
-        )}
-        {p.github && (
-          
-            href={p.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-[12.5px] font-medium text-ink hover:text-accent"
-          >
-            <GithubIcon size={14} /> Source Code
-          </a>
-        )}
-      </div>
+      {(p.demo || p.github) && (
+        <div className="flex items-center gap-4 border-t border-line pt-4">
+          {p.demo && (
+            <a
+              href={p.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[12.5px] font-medium text-ink hover:text-accent"
+            >
+              <ExternalLink size={14} /> Live Demo
+            </a>
+          )}
+          {p.github && (
+            <a
+              href={p.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[12.5px] font-medium text-ink hover:text-accent"
+            >
+              <GithubIcon size={14} /> Source Code
+            </a>
+          )}
+        </div>
+      )}
     </motion.div>
   );
 }
