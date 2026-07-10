@@ -47,7 +47,7 @@ function ProjectCard({ p, index }) {
 
      <div className="flex items-center gap-4 border-t border-line pt-4">
         {p.demo && (
-          
+  
             href={p.demo}
             target="_blank"
             rel="noopener noreferrer"
